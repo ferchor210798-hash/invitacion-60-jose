@@ -19,30 +19,15 @@ body {
   min-height: 100vh;
   background: radial-gradient(circle at top, #0b2f5b, #040b16);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-/* CONTENEDOR */
-.card-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 420px;
-  border-radius: 26px;
-  overflow: hidden;
-  box-shadow: 0 0 50px rgba(160,190,255,.5);
-}
-
-/* IMAGEN */
-.card-wrapper img {
-  width: 100%;
-  display: block;
-}
-
-/* CONFETI */
+/* CONFETI GLOBAL */
 .confetti {
-  position: absolute;
+  position: fixed;
   top: -10px;
   width: 6px;
   height: 14px;
@@ -58,30 +43,53 @@ body {
 
 @keyframes fall {
   0% { transform: translateY(-20px) rotate(0deg); }
-  100% { transform: translateY(110%) rotate(360deg); }
+  100% { transform: translateY(120vh) rotate(360deg); }
+}
+
+/* TARJETA */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 0 55px rgba(160,190,255,.55);
+  z-index: 5;
+}
+
+/* IMAGEN */
+.card img {
+  width: 100%;
+  display: block;
+}
+
+/* BOTÓN SOBRE LA TARJETA */
+.card .cta {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(7,26,51,.78);
+  padding: 14px 26px;
+  border-radius: 30px;
+  backdrop-filter: blur(6px);
 }
 
 /* BOTÓN */
-.actions {
-  background: #071a33;
-  padding: 20px;
-  text-align: center;
-}
-
-.btn {
+.cta a {
   display: inline-block;
-  padding: 14px 28px;
+  padding: 12px 28px;
   background: linear-gradient(180deg, #f0d68a, #caa44f);
   color: #1a1a1a;
   font-size: 14px;
   letter-spacing: 1px;
   text-decoration: none;
   border-radius: 30px;
-  box-shadow: 0 0 20px rgba(255,215,130,.7);
+  box-shadow: 0 0 20px rgba(255,215,130,.8);
   transition: transform .3s ease, box-shadow .3s ease;
 }
 
-.btn:hover {
+.cta a:hover {
   transform: scale(1.06);
   box-shadow: 0 0 35px rgba(255,215,130,1);
 }
@@ -90,32 +98,28 @@ body {
 
 <body>
 
-<div class="card-wrapper" id="card">
+<!-- CONFETI -->
+<script>
+for (let i = 0; i < 30; i++) {
+  const c = document.createElement("div");
+  c.className = "confetti" + (i % 2 ? " alt" : "");
+  c.style.left = Math.random() * 100 + "vw";
+  c.style.animationDuration = 4 + Math.random() * 5 + "s";
+  c.style.animationDelay = Math.random() * 4 + "s";
+  document.body.appendChild(c);
+}
+</script>
 
-  <!-- CONFETI -->
-  <script>
-    const card = document.getElementById("card");
-    for (let i = 0; i < 26; i++) {
-      const c = document.createElement("div");
-      c.className = "confetti" + (i % 2 ? " alt" : "");
-      c.style.left = Math.random() * 100 + "%";
-      c.style.animationDuration = 4 + Math.random() * 4 + "s";
-      c.style.animationDelay = Math.random() * 4 + "s";
-      card.appendChild(c);
-    }
-  </script>
-
-  <!-- IMAGEN DE LA TARJETA -->
+<!-- TARJETA -->
+<div class="card">
   <img src="images/tarjeta-final.png" alt="Invitación 60 años">
 
-</div>
-
-<div class="actions">
-  <a class="btn"
-     href="https://wa.me/573163861201?text=Confirmo%20mi%20asistencia%20al%20cumpleaños%20de%20Jose%20Amable%20Acosta"
-     target="_blank">
-     Confirmar asistencia
-  </a>
+  <div class="cta">
+    <a href="https://wa.me/57XXXXXXXXXX?text=Confirmo%20mi%20asistencia%20al%20cumpleaños%20de%20Jose%20Amable%20Acosta"
+       target="_blank">
+       Confirmar asistencia
+    </a>
+  </div>
 </div>
 
 </body>
