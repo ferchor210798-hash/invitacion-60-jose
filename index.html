@@ -1,258 +1,264 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Invitación Especial</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Invitación Especial</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- META WHATSAPP -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Invitación Especial">
-  <meta property="og:description" content="Celebramos 60 años de vida de José Amable Acosta">
-  <meta property="og:image" content="https://ferchor210798-hash.github.io/invitacion-60-jose/images/preview-whatsapp.png">
-  <meta property="og:url" content="https://ferchor210798-hash.github.io/invitacion-60-jose/">
-  <meta name="twitter:card" content="summary_large_image">
+<!-- META WHATSAPP -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Invitación Especial">
+<meta property="og:description" content="Celebramos 60 años de vida de José Amable Acosta">
+<meta property="og:image" content="https://ferchor210798-hash.github.io/invitacion-60-jose/images/preview-whatsapp.png">
+<meta property="og:url" content="https://ferchor210798-hash.github.io/invitacion-60-jose/">
+<meta name="twitter:card" content="summary_large_image">
 
-  <!-- FUENTES -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Playfair+Display:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+<!-- FUENTES -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #0b2f5b, #040b16);
-      font-family: 'Playfair Display', serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      overflow: hidden;
-    }
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0b2f5b, #040b16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Libre Baskerville', serif;
+  color: #fff;
+}
 
-    /* CONFETI */
-    .confetti {
-      position: fixed;
-      top: -10px;
-      width: 8px;
-      height: 14px;
-      background: linear-gradient(180deg, #e6d8a3, #ffffff);
-      opacity: 0.8;
-      animation: fall linear infinite;
-    }
+/* TARJETA */
+.invitation {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(180deg, #103c73, #071a33);
+  border-radius: 28px;
+  padding: 36px 26px 40px;
+  box-shadow: 0 0 55px rgba(180, 200, 255, 0.45);
+  overflow: hidden;
+  animation: fadeIn 1.6s ease forwards;
+}
 
-    .confetti:nth-child(odd) {
-      background: linear-gradient(180deg, #cfd8ff, #ffffff);
-    }
+/* CONFETI INTERNO */
+.confetti {
+  position: absolute;
+  top: -10px;
+  width: 6px;
+  height: 12px;
+  background: linear-gradient(180deg, #e8d8a8, #ffffff);
+  opacity: 0.85;
+  animation: fall linear infinite;
+}
 
-    @keyframes fall {
-      0% { transform: translateY(-10vh) rotate(0deg); }
-      100% { transform: translateY(110vh) rotate(360deg); }
-    }
+.confetti.alt {
+  background: linear-gradient(180deg, #cfd9ff, #ffffff);
+}
 
-    .invitation {
-      width: 100%;
-      max-width: 420px;
-      background: linear-gradient(180deg, #0f3f7c, #081b35);
-      border-radius: 26px;
-      padding: 34px 26px 38px;
-      box-shadow: 0 0 50px rgba(160, 190, 255, 0.45);
-      position: relative;
-      overflow: hidden;
-      animation: fadeIn 1.6s ease forwards;
-      z-index: 2;
-    }
+@keyframes fall {
+  0% { transform: translateY(-20px) rotate(0deg); }
+  100% { transform: translateY(120%) rotate(360deg); }
+}
 
-    .invitation::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(255,255,255,0.25), transparent 35%),
-        radial-gradient(circle at 85% 15%, rgba(255,255,255,0.18), transparent 40%),
-        radial-gradient(circle at 15% 90%, rgba(255,255,255,0.2), transparent 45%);
-      animation: shimmer 6s ease-in-out infinite;
-      pointer-events: none;
-    }
+/* BRILLOS */
+.invitation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,0.28), transparent 35%),
+    radial-gradient(circle at 85% 15%, rgba(255,255,255,0.18), transparent 40%),
+    radial-gradient(circle at 15% 90%, rgba(255,255,255,0.2), transparent 45%);
+  animation: shimmer 6s ease-in-out infinite;
+  pointer-events: none;
+}
 
-    /* GLOBOS */
-    .balloon {
-      position: absolute;
-      width: 100px;
-      opacity: 0.22;
-      animation: float 7s ease-in-out infinite;
-    }
+/* GLOBOS */
+.balloon {
+  position: absolute;
+  width: 95px;
+  opacity: 0.22;
+  animation: float 7s ease-in-out infinite;
+}
 
-    .balloon.left {
-      top: 70px;
-      left: -40px;
-    }
+.balloon.left { top: 70px; left: -40px; }
+.balloon.right { top: 90px; right: -40px; animation-delay: 2s; }
 
-    .balloon.right {
-      top: 90px;
-      right: -40px;
-      animation-delay: 2s;
-    }
+/* TEXTOS */
+.header {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  font-size: 14px;
+  color: #dbe6ff;
+}
 
-    .header {
-      text-align: center;
-      margin-bottom: 14px;
-      animation: slideDown 1.2s ease forwards;
-    }
+.intro {
+  text-align: center;
+  font-style: italic;
+  color: #d2dcf4;
+  margin-top: 10px;
+}
 
-    .header h2 {
-      font-family: 'Cinzel', serif;
-      font-size: 14px;
-      letter-spacing: 3px;
-      color: #dbe6ff;
-    }
+/* 60 BRILLANTE */
+.years {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 78px;
+  margin: 12px 0 6px;
+  background: linear-gradient(180deg, #fff4c2, #d8b86a, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 35px rgba(255,215,130,0.9);
+  animation: shine 3s ease-in-out infinite;
+}
 
-    .intro {
-      text-align: center;
-      font-style: italic;
-      color: #cdd9f5;
-      animation: fadeUp 1.4s ease forwards;
-    }
+.name {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
 
-    .years {
-      text-align: center;
-      font-family: 'Cinzel', serif;
-      font-size: 70px;
-      margin: 10px 0;
-      color: #eef3ff;
-      text-shadow: 0 0 22px rgba(255,255,255,0.7);
-      animation: glow 3s ease-in-out infinite;
-    }
+.phrase {
+  text-align: center;
+  font-size: 15px;
+  color: #dbe4f8;
+}
 
-    .name {
-      text-align: center;
-      font-family: 'Cinzel', serif;
-      font-size: 24px;
-      letter-spacing: 1px;
-      animation: fadeUp 1.6s ease forwards;
-    }
+.details {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 15px;
+}
 
-    .phrase, .details, blockquote, .footer, .closing {
-      animation: fadeUp 1.8s ease forwards;
-    }
+blockquote {
+  margin: 22px 0;
+  padding-left: 14px;
+  border-left: 3px solid #a9c1ff;
+  font-style: italic;
+  font-size: 14px;
+  color: #eef3ff;
+}
 
-    .details {
-      text-align: center;
-      font-size: 15px;
-      margin-top: 16px;
-    }
+/* BOTÓN */
+.btn {
+  display: block;
+  margin: 26px auto 0;
+  padding: 12px 26px;
+  background: linear-gradient(180deg, #f0d68a, #caa44f);
+  color: #1a1a1a;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: 0 0 18px rgba(255,215,130,0.6);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
 
-    blockquote {
-      margin: 22px 0;
-      padding-left: 14px;
-      border-left: 3px solid #a9c1ff;
-      font-style: italic;
-      font-size: 14px;
-      color: #eef3ff;
-    }
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255,215,130,0.9);
+}
 
-    .footer {
-      text-align: center;
-      margin-top: 24px;
-    }
+.footer {
+  margin-top: 22px;
+  text-align: center;
+}
 
-    .footer img {
-      width: 74px;
-      filter: drop-shadow(0 0 12px rgba(255,255,255,0.5));
-    }
+.footer img {
+  width: 72px;
+  filter: drop-shadow(0 0 12px rgba(255,255,255,0.5));
+}
 
-    .closing {
-      text-align: center;
-      font-size: 14px;
-      margin-top: 14px;
-      color: #d6e0f7;
-    }
+.closing {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 14px;
+  color: #d6e0f7;
+}
 
-    /* ANIMACIONES */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
+/* ANIMACIONES */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes shimmer {
+  0%,100% { opacity: .6 }
+  50% { opacity: 1 }
+}
 
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
 
-    @keyframes glow {
-      0%, 100% { text-shadow: 0 0 18px rgba(255,255,255,0.6); }
-      50% { text-shadow: 0 0 30px rgba(255,255,255,0.9); }
-    }
-
-    @keyframes shimmer {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-14px); }
-    }
-  </style>
+@keyframes shine {
+  0%,100% { text-shadow: 0 0 25px rgba(255,215,130,0.6); }
+  50% { text-shadow: 0 0 45px rgba(255,215,130,1); }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- CONFETI -->
+<div class="invitation" id="card">
+
+  <!-- CONFETI INTERNO -->
   <script>
-    for (let i = 0; i < 25; i++) {
+    const card = document.getElementById("card");
+    for (let i = 0; i < 28; i++) {
       const c = document.createElement("div");
-      c.className = "confetti";
-      c.style.left = Math.random() * 100 + "vw";
-      c.style.animationDuration = 5 + Math.random() * 5 + "s";
-      c.style.animationDelay = Math.random() * 5 + "s";
-      document.body.appendChild(c);
+      c.className = "confetti" + (i % 2 ? " alt" : "");
+      c.style.left = Math.random() * 100 + "%";
+      c.style.animationDuration = 4 + Math.random() * 4 + "s";
+      c.style.animationDelay = Math.random() * 4 + "s";
+      card.appendChild(c);
     }
   </script>
 
-  <div class="invitation">
+  <!-- Globos -->
+  <img src="images/preview-whatsapp.png" class="balloon left" alt="">
+  <img src="images/preview-whatsapp.png" class="balloon right" alt="">
 
-    <!-- Globos -->
-    <img src="images/preview-whatsapp.png" class="balloon left" alt="">
-    <img src="images/preview-whatsapp.png" class="balloon right" alt="">
+  <div class="header">INVITACIÓN ESPECIAL</div>
+  <p class="intro">Te invitamos a celebrar</p>
 
-    <div class="header">
-      <h2>INVITACIÓN ESPECIAL</h2>
-    </div>
+  <div class="years">60</div>
+  <div class="name">JOSE AMABLE ACOSTA</div>
 
-    <p class="intro">Te invitamos a celebrar</p>
+  <p class="phrase">
+    Seis décadas de historia, esfuerzo y sueños que siguen creciendo.
+  </p>
 
-    <h1 class="years">60</h1>
-    <h2 class="name">JOSE AMABLE ACOSTA</h2>
-
-    <p class="phrase">
-      Seis décadas de historia, esfuerzo y sueños que siguen creciendo.
-    </p>
-
-    <div class="details">
-      <p>📍 <strong>Lugar:</strong> La Vitrina Llorente</p>
-      <p>📅 <strong>Fecha:</strong> 9 de febrero de 2026</p>
-      <p>⏰ <strong>Hora:</strong> 7:00 p.m.</p>
-    </div>
-
-    <blockquote>
-      “El éxito no se mide por los años vividos, sino por las huellas que dejamos
-      y los sueños que aún nos atrevemos a perseguir.”
-    </blockquote>
-
-    <div class="footer">
-      <img src="images/logo-caballero.png" alt="Caballero moderno">
-    </div>
-
-    <p class="closing">
-      Será un honor compartir esta noche de celebración, gratitud y nuevos comienzos.
-    </p>
-
+  <div class="details">
+    <p>📍 <strong>La Vitrina Llorente</strong></p>
+    <p>📅 9 de febrero de 2026</p>
+    <p>⏰ 7:00 p.m.</p>
   </div>
+
+  <blockquote>
+    “El éxito no se mide por los años vividos, sino por las huellas que dejamos.”
+  </blockquote>
+
+  <!-- BOTÓN CONFIRMAR -->
+  <a class="btn"
+     href="https://wa.me/573163861201?text=Confirmo%20mi%20asistencia%20al%20cumpleaños%20de%20Jose%20Amable%20Acosta"
+     target="_blank">
+     Confirmar asistencia
+  </a>
+
+  <div class="footer">
+    <img src="images/logo-caballero.png" alt="Caballero moderno">
+  </div>
+
+  <p class="closing">
+    Será un honor compartir esta noche especial.
+  </p>
+
+</div>
 
 </body>
 </html>
