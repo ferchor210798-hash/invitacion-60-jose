@@ -1,129 +1,195 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invitación 60 Años | José Amable Acosta</title>  <!-- Open Graph / WhatsApp Preview -->  <meta property="og:title" content="Invitación Especial | 60 Años de José Amable Acosta" />
-  <meta property="og:description" content="Te invitamos a celebrar 60 años de vida. Una noche de celebración, gratitud y nuevos comienzos." />
-  <meta property="og:image" content="https://ferchor210798-hash.github.io/invitacion-60-jose/images/preview-whatsapp.png" />
-  <meta property="og:type" content="website" />  <style>
+  <meta charset="UTF-8">
+  <title>Invitación Especial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- META PARA WHATSAPP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Invitación Especial">
+  <meta property="og:description" content="Celebramos 60 años de vida de José Amable Acosta">
+  <meta property="og:image" content="https://ferchor210798-hash.github.io/invitacion-60-jose/images/preview-whatsapp.png">
+  <meta property="og:url" content="https://ferchor210798-hash.github.io/invitacion-60-jose/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- FUENTES -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Playfair+Display:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
     body {
       margin: 0;
-      font-family: 'Georgia', 'Times New Roman', serif;
-      background: radial-gradient(circle at top, #1a2b5c, #081630);
-      color: #ffffff;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #0b2f5b, #040b16);
+      font-family: 'Playfair Display', serif;
       display: flex;
+      align-items: center;
       justify-content: center;
-      padding: 20px;
+      color: #ffffff;
     }
 
-    .card {
-      max-width: 420px;
+    .invitation {
       width: 100%;
-      background: linear-gradient(180deg, #0b1f4a, #06122e);
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(255,255,255,0.15);
-      padding: 30px 22px 40px;
-      text-align: center;
+      max-width: 420px;
+      background: linear-gradient(180deg, #0f3f7c, #081b35);
+      border-radius: 22px;
+      padding: 30px 22px 34px;
+      box-shadow: 0 0 40px rgba(160, 190, 255, 0.35);
       position: relative;
+      overflow: hidden;
     }
 
-    .card::before {
+    /* BRILLOS */
+    .invitation::before {
       content: "";
       position: absolute;
       inset: 0;
-      border-radius: 20px;
-      background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
-      background-size: 4px 4px;
-      opacity: 0.4;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(255,255,255,0.25), transparent 35%),
+        radial-gradient(circle at 90% 12%, rgba(255,255,255,0.2), transparent 40%),
+        radial-gradient(circle at 15% 92%, rgba(255,255,255,0.18), transparent 45%);
       pointer-events: none;
     }
 
-    h1 {
-      font-size: 18px;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
+    /* GLOBOS */
+    .balloon {
+      position: absolute;
+      width: 90px;
+      opacity: 0.25;
     }
 
-    .subtitle {
-      font-style: italic;
-      margin-bottom: 20px;
-      opacity: 0.9;
+    .balloon.left {
+      top: 45px;
+      left: -30px;
     }
 
-    .age {
-      font-size: 64px;
-      font-weight: bold;
-      margin: 10px 0 0;
-      color: #e0e0e0;
+    .balloon.right {
+      top: 70px;
+      right: -30px;
     }
 
-    .age span {
-      display: block;
-      font-size: 18px;
+    .header {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
       letter-spacing: 3px;
+      color: #dbe6ff;
+    }
+
+    .intro {
+      text-align: center;
+      font-style: italic;
+      color: #cdd9f5;
+      margin-bottom: 6px;
+    }
+
+    .years {
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 66px;
+      margin: 8px 0;
+      color: #eef3ff;
+      text-shadow: 0 0 16px rgba(255,255,255,0.55);
     }
 
     .name {
-      font-size: 26px;
-      margin: 15px 0 10px;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
       letter-spacing: 1px;
+      margin-bottom: 14px;
     }
 
     .phrase {
-      font-style: italic;
-      margin: 20px 0;
-      line-height: 1.5;
-      opacity: 0.95;
+      text-align: center;
+      font-size: 15px;
+      margin: 18px 0;
+      color: #d3def6;
     }
 
     .details {
-      margin-top: 25px;
+      margin-top: 18px;
+      text-align: center;
       font-size: 15px;
-      line-height: 1.8;
+    }
+
+    .details p {
+      margin: 6px 0;
+    }
+
+    blockquote {
+      margin: 22px 0;
+      padding-left: 14px;
+      border-left: 3px solid #a9c1ff;
+      font-style: italic;
+      color: #eef3ff;
+      font-size: 14px;
     }
 
     .footer {
-      margin-top: 25px;
-      font-style: italic;
-      opacity: 0.9;
+      margin-top: 24px;
+      text-align: center;
     }
 
-    .logo {
-      margin-top: 30px;
-    }
-
-    .logo img {
-      width: 95px;
+    .footer img {
+      width: 70px;
       opacity: 0.95;
     }
-  </style></head>
+
+    .closing {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 14px;
+      color: #d6e0f7;
+    }
+  </style>
+</head>
+
 <body>
-  <div class="card">
-    <h1>Invitación Especial</h1>
-    <div class="subtitle">Te invitamos a celebrar</div><div class="age">60<span>AÑOS DE VIDA</span></div>
 
-<div class="name">JOSE AMABLE ACOSTA</div>
+  <div class="invitation">
 
-<div class="phrase">
-  “El éxito no se mide por los años vividos, sino por las huellas que dejamos y los sueños que aún nos atrevemos a perseguir.”
-</div>
+    <!-- Globos decorativos -->
+    <img src="images/preview-whatsapp.png" class="balloon left" alt="">
+    <img src="images/preview-whatsapp.png" class="balloon right" alt="">
 
-<div class="details">
-  📍 <strong>Lugar:</strong> LA VITRINA LLORENTE<br />
-  📅 <strong>Fecha:</strong> 9 de febrero de 2026<br />
-  ⏰ <strong>Hora:</strong> 7:00 p.m.
-</div>
+    <div class="header">
+      <h2>INVITACIÓN ESPECIAL</h2>
+    </div>
 
-<div class="footer">
-  Será un honor compartir esta noche de celebración, gratitud y nuevos comienzos.
-</div>
+    <p class="intro">Te invitamos a celebrar</p>
 
-<div class="logo">
-  <!-- Reemplaza el src por el logo que prefieras -->
-  <img src="https://ferchor210798-hash.github.io/invitacion-60-jose/images/caballero-moderno.png" />
-</div>
+    <h1 class="years">60</h1>
+    <h2 class="name">JOSE AMABLE ACOSTA</h2>
+
+    <p class="phrase">
+      Seis décadas de historia, esfuerzo y sueños que siguen creciendo.
+    </p>
+
+    <div class="details">
+      <p>📍 <strong>Lugar:</strong> La Vitrina Llorente</p>
+      <p>📅 <strong>Fecha:</strong> 9 de febrero de 2026</p>
+      <p>⏰ <strong>Hora:</strong> 7:00 p.m.</p>
+    </div>
+
+    <blockquote>
+      “El éxito no se mide por los años vividos, sino por las huellas que dejamos
+      y los sueños que aún nos atrevemos a perseguir.”
+    </blockquote>
+
+    <div class="footer">
+      <img src="images/logo-caballero.png" alt="Caballero moderno">
+    </div>
+
+    <p class="closing">
+      Será un honor compartir esta noche de celebración, gratitud y nuevos comienzos.
+    </p>
 
   </div>
+
 </body>
 </html>
