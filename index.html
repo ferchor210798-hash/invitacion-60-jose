@@ -2,13 +2,13 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Invitación Especial</title>
+<title>Invitación 60 Años</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- META WHATSAPP -->
+<!-- PREVIEW WHATSAPP -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Invitación Especial">
-<meta property="og:description" content="Celebramos 60 años de vida de José Amable Acosta">
+<meta property="og:description" content="Celebramos los 60 años de José Amable Acosta">
 <meta property="og:image" content="https://ferchor210798-hash.github.io/invitacion-60-jose/images/preview-whatsapp.png">
 <meta property="og:url" content="https://ferchor210798-hash.github.io/invitacion-60-jose/">
 <meta name="twitter:card" content="summary_large_image">
@@ -17,7 +17,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(circle at top, #0b2f5b, #040b16);
+  background: radial-gradient(circle at top, #0c2f57, #050b16);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,20 +25,20 @@ body {
   overflow-x: hidden;
 }
 
-/* CONFETI GLOBAL */
+/* CONFETI */
 .confetti {
   position: fixed;
   top: -10px;
   width: 6px;
   height: 14px;
-  background: linear-gradient(180deg, #fff3c4, #ffffff);
+  background: linear-gradient(180deg, #ffffff, #d6e4ff);
   opacity: .9;
   animation: fall linear infinite;
   z-index: 2;
 }
 
 .confetti.alt {
-  background: linear-gradient(180deg, #cfd9ff, #ffffff);
+  background: linear-gradient(180deg, #f3e6b3, #ffffff);
 }
 
 @keyframes fall {
@@ -53,7 +53,7 @@ body {
   max-width: 420px;
   border-radius: 26px;
   overflow: hidden;
-  box-shadow: 0 0 55px rgba(160,190,255,.55);
+  box-shadow: 0 0 40px rgba(160,190,255,.45);
   z-index: 5;
 }
 
@@ -63,35 +63,59 @@ body {
   display: block;
 }
 
-/* BOTÓN SOBRE LA TARJETA */
-.card .cta {
+/* FUEGOS ARTIFICIALES */
+#fireworks {
   position: absolute;
-  bottom: 7px;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* CONTADOR */
+.counter {
+  position: absolute;
+  top: 18px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(7,26,51,.78);
-  padding: 14px 26px;
-  border-radius: 30px;
-  backdrop-filter: blur(2px);
+  background: rgba(6,20,40,.65);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #e9f1ff;
+  backdrop-filter: blur(6px);
+  z-index: 3;
 }
 
 /* BOTÓN */
+.cta {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(6,20,40,.7);
+  padding: 10px 18px;
+  border-radius: 28px;
+  backdrop-filter: blur(6px);
+  z-index: 3;
+}
+
 .cta a {
   display: inline-block;
-  padding: 24px 45px;
-  background: linear-gradient(180deg, #f0d68a, #caa44f);
-  color: #1a1a1a;
-  font-size: 14px;
+  padding: 12px 26px;
+  background: linear-gradient(180deg, #4a6fa5, #2e4f80);
+  color: #ffffff;
+  font-size: 13px;
   letter-spacing: 1px;
   text-decoration: none;
-  border-radius: 20px;
-  box-shadow: 0 0 5px rgba(255,215,130,.8);
+  border-radius: 26px;
+  box-shadow: 0 0 10px rgba(120,160,220,.6);
   transition: transform .3s ease, box-shadow .3s ease;
 }
 
 .cta a:hover {
-  transform: scale(1.06);
-  box-shadow: 0 0 35px rgba(255,215,130,1);
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(160,200,255,.9);
 }
 </style>
 </head>
@@ -100,7 +124,7 @@ body {
 
 <!-- CONFETI -->
 <script>
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 32; i++) {
   const c = document.createElement("div");
   c.className = "confetti" + (i % 2 ? " alt" : "");
   c.style.left = Math.random() * 100 + "vw";
@@ -112,15 +136,87 @@ for (let i = 0; i < 30; i++) {
 
 <!-- TARJETA -->
 <div class="card">
+
+  <canvas id="fireworks"></canvas>
+
+  <div class="counter" id="countdown">Cargando…</div>
+
   <img src="images/tarjeta-final.png" alt="Invitación 60 años">
 
   <div class="cta">
-    <a href="https://wa.me/573163861201?text=Confirmo%20mi%20asistencia%20al%20cumpleaños%20de%20Jose%20Amable%20Acosta"
+    <a href="https://wa.me/573163861201?text=Confirmo%20mi%20asistencia%20al%20cumpleaños%20de%20José%20Amable%20Acosta"
        target="_blank">
-       Confirmar asistencia
+      Confirmar asistencia
     </a>
   </div>
 </div>
 
+<!-- CONTADOR -->
+<script>
+const targetDate = new Date("2026-02-09T19:00:00").getTime();
+const countdown = document.getElementById("countdown");
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
+
+  if (diff <= 0) {
+    countdown.innerHTML = "¡Hoy es el gran día!";
+    return;
+  }
+
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const m = Math.floor((diff / (1000 * 60)) % 60);
+
+  countdown.innerHTML = `${d} días • ${h}h ${m}m`;
+}, 1000);
+</script>
+
+<!-- FUEGOS ARTIFICIALES -->
+<script>
+const canvas = document.getElementById('fireworks');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+function firework() {
+  const x = canvas.width / 2 + (Math.random() * 80 - 40);
+  const y = canvas.height / 2 - 40;
+  const parts = [];
+
+  for (let i = 0; i < 26; i++) {
+    parts.push({
+      x, y,
+      a: Math.random() * Math.PI * 2,
+      s: Math.random() * 2 + 1,
+      l: 60
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    parts.forEach(p => {
+      p.x += Math.cos(p.a) * p.s;
+      p.y += Math.sin(p.a) * p.s;
+      p.l--;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 2, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(160,200,255,${p.l/60})`;
+      ctx.fill();
+    });
+    if (parts.some(p => p.l > 0)) requestAnimationFrame(animate);
+  }
+  animate();
+}
+setInterval(firework, 3200);
+</script>
+
 </body>
 </html>
+
