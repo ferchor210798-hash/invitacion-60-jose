@@ -1,129 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación 60 Años - José Amable Acosta</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación 60 Años - José Amable Acosta</title>
 
-  <!-- Tipografías elegantes -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+<!-- Fuentes elegantes -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      background: radial-gradient(circle at top, #0b1d3a, #020814);
-      font-family: 'Playfair Display', serif;
-      overflow-x: hidden;
-      color: #fff;
-    }
+<style>
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #0b1d3a, #020814);
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  overflow-x: hidden;
+}
 
-    .container {
-      max-width: 430px;
-      margin: auto;
-      position: relative;
-      padding-bottom: 40px;
-    }
+.container {
+  max-width: 430px;
+  margin: auto;
+  position: relative;
+}
 
-    /* Tarjeta */
-    .card {
-      position: relative;
-      margin: 20px;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    }
+/* TARJETA */
+.card {
+  position: relative;
+  margin: 16px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 45px rgba(0,0,0,.7);
+}
 
-    .card img {
-      width: 100%;
-      display: block;
-    }
+.card img {
+  width: 100%;
+  display: block;
+}
 
-    /* Fuegos artificiales */
-    .fireworks {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 3;
-    }
+/* BRILLO DEL 60 */
+.glow-60 {
+  position: absolute;
+  top: 16%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Cinzel', serif;
+  font-size: 64px;
+  color: #eaf2ff;
+  text-shadow:
+    0 0 8px #ffffff,
+    0 0 16px #9ecbff,
+    0 0 32px #6fa8ff;
+  animation: pulse 2.5s ease-in-out infinite;
+  z-index: 4;
+}
 
-    .spark {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      animation: explode 2.5s ease-out infinite;
-      opacity: 0;
-    }
+@keyframes pulse {
+  0%,100% { opacity: .8; }
+  50% { opacity: 1; }
+}
 
-    @keyframes explode {
-      0% { transform: scale(0); opacity: 1; }
-      50% { opacity: 1; }
-      100% { transform: scale(6); opacity: 0; }
-    }
+/* DESTELLOS */
+.sparkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkle 2s infinite;
+}
 
-    /* Confeti */
-    canvas {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 2;
-    }
+@keyframes sparkle {
+  0% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: scale(2); }
+}
 
-    /* Contador integrado */
-    .countdown {
-      position: absolute;
-      bottom: 0px;
-      width: 100%;
-      text-align: center;
-      font-family: 'Cinzel', serif;
-      font-size: 20px;
-      letter-spacing: 2px;
-      color: #e6f0ff;
-      text-shadow: 0 0 8px rgba(255,255,255,0.4);
-      z-index: 4;
-    }
+/* CONFETI */
+canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
 
-    .countdown span {
-      margin: 0 6px;
-      font-size: 26px;
-      color: #ffffff;
-    }
+/* CONTADOR */
+.countdown {
+  position: absolute;
+  bottom: 90px;
+  width: 100%;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: #e6f0ff;
+  z-index: 4;
+}
 
-    /* Botón elegante */
-    .btn {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 14px 36px;
-      background: linear-gradient(135deg, #1f4fd8, #3fa9f5);
-      border-radius: 30px;
-      font-family: 'Cinzel', serif;
-      font-size: 15px;
-      letter-spacing: 2px;
-      color: #fff;
-      text-decoration: none;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-      transition: all 0.3s ease;
-      z-index: 4;
-    }
+.countdown span {
+  font-size: 22px;
+  margin: 0 4px;
+}
 
-    .btn:hover {
-      transform: translateX(-50%) scale(1.05);
-      box-shadow: 0 10px 26px rgba(63,169,245,0.6);
-    }
-  </style>
+/* BOTÓN */
+.btn {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #234bd6, #3fa9f5);
+  border-radius: 26px;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,.4);
+  transition: .3s;
+  z-index: 4;
+}
+
+.btn:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+</style>
 </head>
+
 <body>
 
 <canvas id="confetti"></canvas>
 
 <div class="container">
   <div class="card">
-    <img src="images/tarjeta-final2.png" alt="Invitación 60 años">
 
-    <!-- Fuegos artificiales -->
-    <div class="fireworks" id="fireworks"></div>
+    <img src="images/tarjeta-final2.png" alt="Invitación">
+
+    <!-- Brillo 60 -->
+    <div class="glow-60">60</div>
 
     <!-- Contador -->
     <div class="countdown" id="countdown"></div>
@@ -132,71 +146,62 @@
     <a class="btn" href="https://wa.me/573163861201" target="_blank">
       CONFIRMAR ASISTENCIA
     </a>
+
   </div>
 </div>
 
 <script>
-  /* ===== CONFETI ===== */
-  const canvas = document.getElementById("confetti");
-  const ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+/* CONFETI */
+const canvas = document.getElementById("confetti");
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
 
-  let confetti = Array.from({ length: 180 }, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 4 + 1,
-    d: Math.random() * 2 + 1
-  }));
+let confetti = Array.from({length: 160}, () => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  r: Math.random() * 3 + 1,
+  d: Math.random() * 2 + 1
+}));
 
-  function drawConfetti() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "rgba(200,220,255,0.8)";
-    confetti.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-      p.y += p.d;
-      if (p.y > canvas.height) p.y = -10;
-    });
-    requestAnimationFrame(drawConfetti);
-  }
-  drawConfetti();
+function drawConfetti() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = "rgba(200,220,255,.8)";
+  confetti.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+    p.y += p.d;
+    if(p.y>canvas.height) p.y = -10;
+  });
+  requestAnimationFrame(drawConfetti);
+}
+drawConfetti();
 
-  /* ===== CONTADOR ===== */
-  const target = new Date("2026-02-09T19:00:00").getTime();
-  const cd = document.getElementById("countdown");
+/* CONTADOR */
+const target = new Date("2026-02-09T19:00:00").getTime();
+const cd = document.getElementById("countdown");
 
-  setInterval(() => {
-    const now = new Date().getTime();
-    const d = target - now;
+setInterval(()=>{
+  const now = new Date().getTime();
+  const d = target - now;
+  const days = Math.floor(d/(1000*60*60*24));
+  const hrs = Math.floor((d/(1000*60*60))%24);
+  const min = Math.floor((d/(1000*60))%60);
 
-    const days = Math.floor(d / (1000 * 60 * 60 * 24));
-    const hrs = Math.floor((d / (1000 * 60 * 60)) % 24);
-    const min = Math.floor((d / (1000 * 60)) % 60);
+  cd.innerHTML = `FALTAN <span>${days}</span>D <span>${hrs}</span>H <span>${min}</span>M`;
+},1000);
 
-    cd.innerHTML = `
-      FALTAN
-      <span>${days}</span>D
-      <span>${hrs}</span>H
-      <span>${min}</span>M
-    `;
-  }, 1000);
-
-  /* ===== FUEGOS ARTIFICIALES ===== */
-  const fw = document.getElementById("fireworks");
-
-  function createSpark() {
-    const s = document.createElement("div");
-    s.className = "spark";
-    s.style.left = Math.random() * 100 + "%";
-    s.style.top = Math.random() * 90 + "%";
-    s.style.background = ["#fff", "#9ecbff", "#6fa8ff"][Math.floor(Math.random() * 3)];
-    fw.appendChild(s);
-    setTimeout(() => s.remove(), 2500);
-  }
-
-  setInterval(createSpark, 180);
+/* DESTELLOS */
+const card = document.querySelector(".card");
+setInterval(()=>{
+  const s = document.createElement("div");
+  s.className = "sparkle";
+  s.style.left = Math.random()*100+"%";
+  s.style.top = Math.random()*100+"%";
+  card.appendChild(s);
+  setTimeout(()=>s.remove(),2000);
+},150);
 </script>
 
 </body>
