@@ -120,7 +120,7 @@
 
 <div class="container">
   <div class="card">
-    <img src="images/tarjeta-final2.png" alt="Invitación 60 años">
+    <img src="images/tarjeta-final.png" alt="Invitación 60 años">
 
     <!-- Fuegos artificiales -->
     <div class="fireworks" id="fireworks"></div>
@@ -129,7 +129,7 @@
     <div class="countdown" id="countdown"></div>
 
     <!-- Botón -->
-    <a class="btn" href="https://wa.me/573163861201" target="_blank">
+    <a class="btn" href="https://wa.me/57XXXXXXXXXX" target="_blank">
       CONFIRMAR ASISTENCIA
     </a>
   </div>
@@ -190,6 +190,17 @@
     const s = document.createElement("div");
     s.className = "spark";
     s.style.left = Math.random() * 100 + "%";
-    s.style.top = Mat
+    s.style.top = Math.random() * 90 + "%";
+    s.style.background = ["#fff", "#9ecbff", "#6fa8ff"][Math.floor(Math.random() * 3)];
+    fw.appendChild(s);
+    setTimeout(() => s.remove(), 2500);
+  }
+
+  setInterval(createSpark, 180);
+</script>
+
+</body>
+</html>
+
 
 
